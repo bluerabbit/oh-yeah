@@ -1,0 +1,24 @@
+{
+  "name":        "OhYeah",
+  "version":     "0.0.1",
+  "description": "this is Chrome extension Oh Yeah! grunt project.",
+  "main":        "js/background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author":     "bluerabbit",
+  "license":    "BSD",
+  "dependencies": {
+    "coffee-script": "~1.6.2",
+    "grunt-cli":     "~0.1.7"
+  },
+  "devDependencies": {
+    "grunt":                "~0.4.1",
+    "grunt-contrib":        "~0.6.0",
+    "grunt-contrib-watch":  "~0.3.1",
+    "grunt-contrib-clean":  "~0.4.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-bower-task":     "~0.3.1"
+  }
+}

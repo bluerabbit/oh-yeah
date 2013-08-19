@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Oh Yeah!",
+  "version": "0.0.1",
+  "omnibox": {
+    "keyword": "o"
+  },
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "lib/js/underscore/underscore-min.js",
+      "js/omnibox_navigator.js",
+      "js/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs"
+  ]
+}
