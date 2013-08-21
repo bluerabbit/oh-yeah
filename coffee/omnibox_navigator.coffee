@@ -1,38 +1,30 @@
 class OmniBoxNavigator
   constructor: (@inputText) ->
 
+  #suggestType: ''
+
   suggest: (suggestCallback) ->
     suggestCallback(@createSuggestParams())
 
   createSuggestParams: ->
-    if @startWith('t')
-      @suggestGoogleTranslate()
-    else
-      @suggestOther()
-
-  startChar: ->
-    @inputText.split(' ')[0]
-
-  startWith: (char) ->
-    @startChar() == char
-
-  suggestGoogleTranslate: ->
     [
-      content:     'http://translate.google.co.jp/?source=osdd#auto|auto|'
-      description: 'Google 翻訳(t)'
-    ]
-
-  suggestOther: ->
-    [
-      content:     'http://translate.google.co.jp/?source=osdd#auto|auto|'
-      description: 'Google 翻訳(n)'
+      content:     'Google translate::' + @inputText
+      description: 'Google translate'
     ,
-      content:     'http://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%83J%83%5E%83J%83i&url=search-alias%3Daps&field-keywords='
-      description: 'Amazon(n)'
+      content:     'Amazon::' + @inputText
+      description: 'Amazon'
     ]
 
   navigate: (inputText) ->
-    OmniBoxNavigator.navigate(inputText)
+    type = inputText.split('::')[0]
+    if type == 'Google translate'
+      url = 'http://translate.google.co.jp/?source=osdd#auto|auto|'
+    else if type == 'Amazon'
+      url = 'http://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%83J%83%5E%83J%83i&url=search-alias%3Daps&field-keywords='
+    else
+      OmniBoxNavigator.navigate('https://www.google.co.jp/search?q=' + inputText)
+      return
+    OmniBoxNavigator.navigate(url + inputText.replace(type + '::', ''))
 
   @navigate: (url) ->
     chrome.tabs.getSelected null, (tab) ->
