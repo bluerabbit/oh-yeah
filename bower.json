@@ -9,7 +9,8 @@
   ],
   "dependencies": {
     "jquery": "~1.8.3",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "font-awesome": "~3.2.1"
   },
   "devDependencies": {
     "mocha": "~1.9.0",
@@ -27,6 +28,10 @@
     },
     "sinon": {
       "js": "**/*.js"
+    },
+    "font-awesome": {
+      "css": "**/*.min.css",
+      "font": "font/*.*"
     }
   }
 }
