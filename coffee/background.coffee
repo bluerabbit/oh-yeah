@@ -6,4 +6,3 @@ chrome.omnibox.onInputChanged.addListener (inputText, suggestCallback) ->
 
 chrome.omnibox.onInputEntered.addListener (inputText, disposition) ->
   navi.navigate(inputText)
-

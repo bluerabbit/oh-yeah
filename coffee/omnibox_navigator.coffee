@@ -5,30 +5,12 @@ class OmniBoxNavigator
     suggestCallback(@createSuggestParams())
 
   createSuggestParams: ->
-    if @startWith('t')
-      @suggestGoogleTranslate()
-    else
-      @suggestOther()
-
-  startChar: ->
-    @inputText.split(' ')[0]
-
-  startWith: (char) ->
-    @startChar() == char
-
-  suggestGoogleTranslate: ->
     [
-      content:     'http://translate.google.co.jp/?source=osdd#auto|auto|'
-      description: 'Google 翻訳(t)'
-    ]
-
-  suggestOther: ->
-    [
-      content:     'http://translate.google.co.jp/?source=osdd#auto|auto|'
-      description: 'Google 翻訳(n)'
+      content:     "http://translate.google.co.jp/?source=osdd#auto|auto|#{@inputText}"
+      description: 'Google 翻訳'
     ,
-      content:     'http://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%83J%83%5E%83J%83i&url=search-alias%3Daps&field-keywords='
-      description: 'Amazon(n)'
+      content:     "http://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%83J%83%5E%83J%83i&url=search-alias%3Daps&field-keywords=#{@inputText}"
+      description: 'Amazon'
     ]
 
   navigate: (inputText) ->
